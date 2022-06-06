@@ -11,6 +11,10 @@ A calculator and unit converter combo; primarily functions as a calculator
 
 import tkinter as tk
 import calculate
+from window import *
+#import main
+#from window import *
+#basic_frm = tk.Frame(master=main.window)
 
 num_loc = []
 
@@ -85,16 +89,17 @@ def sign_init(operation):
 
 
 operations = ["A/C", "+/-", "%", "/"]
-window = tk.Tk()
-window.resizable(width=False, height=False)
-window.title("CalcX")
-lbl_frame=tk.Frame(master=window)
+#window = tk.Tk()
+basic_frm = tk.Frame(master=window)
+#window.resizable(width=False, height=False)
+#window.title("CalcX")
+lbl_frame=tk.Frame(master=basic_frm)
 lbl_frame.pack()
 lbl = tk.Label(master=lbl_frame, bg="white", fg="black", width=25, text="0", anchor="e", justify=tk.LEFT)
 lbl.pack(side=tk.RIGHT)
 lbl.grid(row=0, column=0, sticky="e")
 
-btn_frame = tk.Frame(master=window)
+btn_frame = tk.Frame(master=basic_frm)
 btn_frame.pack()
 
 clear_btn = tk.Button(master=btn_frame, text="A/C", command=ac, fg="red")
@@ -136,4 +141,4 @@ zero_btn.grid(row=4, column=0, padx=5, pady=5, sticky="ew")
 deci_btn = tk.Button(master=btn_frame, text=".", command=lambda: nums("."))
 deci_btn.grid(row=4, column=2, padx=5, pady=5, sticky="ew")
 
-window.mainloop()
+#window.mainloop()

@@ -11,6 +11,8 @@ A calculator and unit converter combo; primarily functions as a calculator
 
 import tkinter as tk
 import calculate
+#import main
+from window import *
 
 num_loc = []
 
@@ -121,7 +123,7 @@ def adv_init(operation):
         elif operation == oper_adv[8]:
             new_num = calculate.num_sqrd(float(nums_operate[0]))
         elif operation == oper_adv[9]:
-            new_num = calculate.cos(nums_operate[0])
+            new_num = calculate.cos(float(nums_operate[0]))
         lbl["text"] = new_num
         nums_operate.pop(0)
     elif oper_adv.index(operation) in adv_two:
@@ -131,20 +133,21 @@ def adv_init(operation):
 
 
 operations = ["A/C", "+/-", "%", "/"]
-window = tk.Tk()
+scientific_frm = tk.Frame(master=window)
+#window = tk.Tk()
 #window.resizable(width=False, height=False)
-window.title("CalcX")
-lbl_frame=tk.Frame(master=window)
+#window.title("CalcX")
+lbl_frame=tk.Frame(master=scientific_frm)
 lbl_frame.pack()
 lbl = tk.Label(master=lbl_frame, bg="white", fg="black", width=50, text="0", anchor="e", justify=tk.LEFT)
 lbl.pack(side=tk.RIGHT)
 
-dropdown_frame = tk.Frame(master=window)
+dropdown_frame = tk.Frame(master=scientific_frm)
 dropdown_frame.pack()
 dropdown_test = tk.Button(master=dropdown_frame, text="Test", width=25)
 dropdown_test.pack(side=tk.LEFT)
 
-btn_frame = tk.Frame(master=window) 
+btn_frame = tk.Frame(master=scientific_frm) 
 btn_frame.pack(side=tk.RIGHT)
 
 adv_btn_frame = tk.Frame(master=btn_frame)
@@ -222,4 +225,4 @@ zero_btn.grid(row=4, column=0, padx=5, pady=5, sticky="ew")
 deci_btn = tk.Button(master=basic_btn_frame, text=".", command=lambda: nums("."))
 deci_btn.grid(row=4, column=2, padx=5, pady=5, sticky="ew")
 
-window.mainloop()
+#window.mainloop()

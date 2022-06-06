@@ -10,7 +10,10 @@ Unit Converter GUI
 
 import tkinter as tk
 import unit_converter
-import main
+#import main
+from window import *
+
+#from window import *
 frames = []
 dropdowns = []
 
@@ -66,29 +69,30 @@ distance_options = unit_converter.distance_units
 volume_options = unit_converter.volume_units
 temp_options = unit_converter.temp_units
 measurement_options = unit_converter.measurements
-window_types = main.window_type
+#window_types = main.window_type
 
 main_option = mass_options
 
-window = tk.Tk()
-window.title("CalcX - Unit Converter")
+unit_conv_master_frm = tk.Frame(master=window)
+#window = tk.Tk()
+#window.title("CalcX - Unit Converter")
 
 #clicked = tk.StringVar()
 #measurement_dropdown = tk.OptionMenu(window, clicked, *measurement_options) 
-window.resizable(width=False, height=False)
-dropdown_frm = tk.Frame(master=window)
+#window.resizable(width=False, height=False)
+dropdown_frm = tk.Frame(master=unit_conv_master_frm)
 dropdown_frm.grid(row=0, column=0, pady=10)
-window_type_clicked = tk.StringVar()
-window_type_clicked.set("Unit Converter")
-window_type_dropdown = tk.OptionMenu(dropdown_frm, window_type_clicked, *window_types)
-window_type_dropdown.grid(row=0, column=0, padx=10)
+#window_type_clicked = tk.StringVar()
+#window_type_clicked.set("Unit Converter")
+#window_type_dropdown = tk.OptionMenu(dropdown_frm, window_type_clicked, *window_types)
+#window_type_dropdown.grid(row=0, column=0, padx=10)
 measurement_clicked = tk.StringVar()
 measurement_clicked.set("mass")
 measurement_dropdown = tk.OptionMenu(dropdown_frm, measurement_clicked, *measurement_options)
 measurement_dropdown.grid(row=0, column=1, padx=10)
 change_button = tk.Button(master=dropdown_frm, text="Change Unit Type", command=chnge_measurements)
 change_button.grid(row=0, column=2, padx=10)
-unit_conv_frame = tk.Frame(master=window)
+unit_conv_frame = tk.Frame(master=unit_conv_master_frm)
 unit_conv_frame.grid(row=1, column=0)
 
 convert_frm = tk.Frame(master=unit_conv_frame, width=10)
@@ -136,4 +140,4 @@ convert_frm.grid(row=0, column=0, padx=5)
 btn_frm.grid(row=0, column=1, padx=5)
 converted_frame.grid(row=0, column=2, padx=5)
 
-window.mainloop()
+#window.mainloop()
