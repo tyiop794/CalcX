@@ -46,6 +46,7 @@ def ac():
     lbl["text"] = "0"
     oper_used = []
     nums_operate = []
+    oper_color("=")
     
 
 def change_sign():

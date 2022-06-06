@@ -30,7 +30,7 @@ def main():
     window_type_clicked = tk.StringVar()
     window_type_dropdown = tk.OptionMenu(dropdown_frm, window_type_clicked, *window_type)
     window_type_dropdown.grid(row=0, column=0, padx=10)
-    while True:
+    while ui != "Exit":
         #window = tk.Tk()
         #dropdown_frm = tk.Frame(master=window)
         #dropdown_frm.grid(row=0, column=0, pady=10, sticky="w")
