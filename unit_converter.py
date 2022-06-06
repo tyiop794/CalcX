@@ -92,7 +92,7 @@ def distance(unit, second_unit, amount):
             elif second_unit == 8:
                 amount = amount
                 unit = second_unit
-    return amount
+    return round(amount, 2)
 
 
 def mass(unit, second_unit, amount):
@@ -154,7 +154,7 @@ def mass(unit, second_unit, amount):
                 amount *= 0.035274
                 unit = 0
         #amount = amount + " " + mass_units[unit] 
-    return amount
+    return round(amount, 2)
 
 def temp(unit, second_unit, amount):
     while unit != second_unit:
@@ -175,7 +175,7 @@ def temp(unit, second_unit, amount):
                 amount = (amount + 273.15)
                 unit = second_unit
         #print(amount)
-    return amount
+    return round(amount, 2)
 
 def volume(unit, second_unit, amount):
     while unit != second_unit:
@@ -223,6 +223,6 @@ def volume(unit, second_unit, amount):
                 unit = 0
     #amount = str(amount) + " " + volume_units[unit]
     #print(amount)
-    return amount
+    return round(amount, 2)
                 
 

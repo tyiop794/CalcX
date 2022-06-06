@@ -121,7 +121,7 @@ convert_unit_dropdown.grid(row=0, column=1, sticky="w")
 right_btn = tk.Button(master=btn_frm, text="\N{RIGHTWARDS BLACK ARROW}", command=convert)
 right_btn.grid(row=0, column=0)
 
-converted_lbl = tk.Label(master=converted_frame, width=5, fg="black", bg="white")
+converted_lbl = tk.Label(master=converted_frame, width=20, fg="black", bg="white")
 converted_lbl.grid(row=0, column=0)
 #converted_type = tk.Label(master=converted_frame, text="ft.")
 #converted_type.grid(row=0, column=1)

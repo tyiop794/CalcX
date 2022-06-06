@@ -30,15 +30,13 @@ def oper_color(operation):
             oper_btns[i] = tk.Button(master=basic_btn_frame, text=operations[i], command=lambda i = i: sign_init(operations[i]), fg="black")
         oper_btns[i].grid(row=i, column=3, padx=5, pady=5, sticky="ew")
 
-def switch_calcs():
-    print("This is a test function for the time being")
-
-
 def nums(num):
+    print(lbl["text"])
+    print(nums_operate)
     if lbl["text"] == "0" or lbl["text"] in nums_operate:
-        lbl["text"] = (num)
+        lbl["text"] = str(num)
     else:
-        lbl["text"] += (num)
+        lbl["text"] += str(num)
 
 def ac():
     global oper_used
@@ -90,7 +88,7 @@ def sign_init(operation):
     else:
         nums_operate.append(lbl["text"])
         oper_used.append(operation)
-    oper_color(oper_used[0])
+    oper_color(operation)
 
 def adv_init(operation):
     global nums_operate
@@ -105,28 +103,29 @@ def adv_init(operation):
         elif oper_used[0] == oper_adv[3]:
             new_num = calculate.num_exp(float(nums_operate[0]), float(nums_operate[1]))
         nums_operate = []
-        oper_used = []
+        #oper_used = []
         lbl["text"] = new_num
+        nums_operate.append(new_num)
         oper_used.pop(0)
     elif oper_adv.index(operation) in adv_one:
-        nums_operate = []
-        nums_operate.append(lbl["text"])
+        #nums_operate = []
+        num_operate = lbl["text"]
         if operation == oper_adv[1]:
             new_num = calculate.pi()
         elif operation == oper_adv[4]:
-            new_num = calculate.sin(float(nums_operate[0]))
+            new_num = calculate.sin(float(num_operate))
         elif operation == oper_adv[5]:
-            new_num = calculate.ln(float(nums_operate[0]))
+            new_num = calculate.ln(float(num_operate))
         elif operation == oper_adv[6]:
-            new_num = calculate.log_ten(float(nums_operate[0]))
+            new_num = calculate.log_ten(float(num_operate))
         elif operation == oper_adv[7]:
-            new_num = calculate.sqroot(float(nums_operate[0]))
+            new_num = calculate.sqroot(float(num_operate))
         elif operation == oper_adv[8]:
-            new_num = calculate.num_sqrd(float(nums_operate[0]))
+            new_num = calculate.num_sqrd(float(num_operate))
         elif operation == oper_adv[9]:
-            new_num = calculate.cos(float(nums_operate[0]))
+            new_num = calculate.cos(float(num_operate))
         lbl["text"] = new_num
-        nums_operate.pop(0)
+        #nums_operate.pop(0)
     elif oper_adv.index(operation) in adv_two:
         nums_operate.append(lbl["text"])
         oper_used.append(operation)
@@ -140,13 +139,15 @@ scientific_frm = tk.Frame(master=window)
 #window.title("CalcX")
 lbl_frame=tk.Frame(master=scientific_frm)
 lbl_frame.pack()
-lbl = tk.Label(master=lbl_frame, bg="white", fg="black", width=50, text="0", anchor="e", justify=tk.LEFT)
+lbl = tk.Label(master=lbl_frame, bg="white", fg="black", width=35, text="0", anchor="e", justify=tk.LEFT)
 lbl.pack(side=tk.RIGHT)
 
+"""
 dropdown_frame = tk.Frame(master=scientific_frm)
 dropdown_frame.pack()
 dropdown_test = tk.Button(master=dropdown_frame, text="Test", width=25)
 dropdown_test.pack(side=tk.LEFT)
+"""
 
 btn_frame = tk.Frame(master=scientific_frm) 
 btn_frame.pack(side=tk.RIGHT)
