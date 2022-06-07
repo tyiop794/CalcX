@@ -31,8 +31,6 @@ def oper_color(operation):
         oper_btns[i].grid(row=i, column=3, padx=5, pady=5, sticky="ew")
 
 def nums(num):
-    print(lbl["text"])
-    print(nums_operate)
     if lbl["text"] == "0" or lbl["text"] in nums_operate:
         lbl["text"] = str(num)
     else:
