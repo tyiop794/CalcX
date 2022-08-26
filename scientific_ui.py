@@ -91,7 +91,6 @@ def sign_init(operation):
 def adv_init(operation):
     global nums_operate
     global oper_used
-    print("This is a test function")
     if len(oper_used) > 0:
         nums_operate.append(lbl["text"])
         if oper_used[0] == oper_adv[0]:
